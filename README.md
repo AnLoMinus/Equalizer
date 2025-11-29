@@ -1,0 +1,2 @@
+# Equalizer
+🎚️ אקוולייזר – Equalizer (EQ)

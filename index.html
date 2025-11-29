@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Equalizer – המאגר הראשי • EQHub (EH)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Equalizer – המאגר הראשי: שער מרכזי לכל עולמות האקוולייזר של AnLoMinus – SparKing AudioMind. ToneCraft, ChakraEQ ועוד." />
+
+  <style>
+    :root {
+      --bg-main: #020617;
+      --bg-panel: rgba(15, 23, 42, 0.96);
+      --accent: #fbbf24;
+      --accent-2: #38bdf8;
+      --accent-3: #a855f7;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-soft: rgba(148, 163, 184, 0.4);
+      --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.75);
+      --radius-xl: 22px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #111827, #020617 58%, #000000 100%);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        90deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(30, 64, 175, 0.75),
+        rgba(15, 23, 42, 0.96)
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .logo-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0%, #facc15, #fb923c 40%, #fb7185 70%, #38bdf8 100%);
+      box-shadow:
+        0 0 16px rgba(250, 204, 21, 0.9),
+        0 0 32px rgba(56, 189, 248, 0.7);
+    }
+
+    .logo-main {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-start;
+      font-size: 0.8rem;
+    }
+
+    nav a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: #e5e7eb;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      border-color: var(--accent-2);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent-2);
+    }
+
+    /* Layout */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 22px 18px 50px;
+    }
+
+    section {
+      margin: 26px 0;
+    }
+
+    h1, h2, h3 {
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      margin: 0 0 10px;
+    }
+
+    h2 {
+      font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+      margin: 0 0 8px;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 0 0 4px;
+    }
+
+    p {
+      margin: 4px 0 10px;
+      color: var(--text-muted);
+    }
+
+    /* Hero */
+    .hero {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.4fr) minmax(0, 2fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .hero-left {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 22px 22px 20px;
+      background:
+        radial-gradient(circle at 0 0, rgba(250, 204, 21, 0.22), transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.2), transparent 55%),
+        var(--bg-panel);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      max-width: 96%;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-right {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 18px 18px 16px;
+      background:
+        radial-gradient(circle at 50% 0, rgba(168, 85, 247, 0.3), transparent 60%),
+        radial-gradient(circle at 90% 100%, rgba(56, 189, 248, 0.22), transparent 55%),
+        #020617;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .hero-grid strong {
+      color: var(--accent);
+    }
+
+    .meta-row {
+      margin-top: 4px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .meta-pill {
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    /* Panels / Cards */
+    .panel {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 18px 18px 16px;
+      background: var(--bg-panel);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .pill-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-2);
+      margin-bottom: 4px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .project-card {
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 14px 14px 12px;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.2), transparent 60%),
+        rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .project-title {
+      font-size: 0.98rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      align-items: baseline;
+    }
+
+    .project-title span {
+      font-size: 0.74rem;
+      color: var(--accent-2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .project-links {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.8rem;
+    }
+
+    .btn-link {
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-link:hover {
+      border-color: var(--accent-2);
+      color: var(--accent-2);
+    }
+
+    /* Timeline / Steps */
+    .steps-list {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      padding-right: 18px;
+    }
+    .steps-list li + li {
+      margin-top: 3px;
+    }
+
+    .hashtags {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--accent-2);
+      word-break: break-word;
+    }
+
+    .verse {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      border-top: 1px dashed rgba(148, 163, 184, 0.65);
+      padding-top: 8px;
+      font-style: italic;
+      color: #e5e7eb;
+    }
+
+    .footer-meta {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding-inline: 12px;
+      }
+      .hero-left, .hero-right, .panel {
+        padding-inline: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔝 ניווט עליון -->
+  <header>
+    <div class="nav-inner">
+      <div class="logo-wrap">
+        <div class="logo-circle" aria-hidden="true"></div>
+        <div>
+          <div class="logo-main">Equalizer – EQHub (EH)</div>
+          <div class="logo-sub">SparKing AudioMind • מאגר ראשי</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">אודות</a>
+        <a href="#projects">מאגרים</a>
+        <a href="#flow">מסלול שימוש</a>
+        <a href="#credits">קרדיטים</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 🌌 Hero -->
+    <section id="about" class="hero">
+      <div class="hero-left">
+        <div class="hero-pill">
+          🎚️ Equalizer • מאגר ראשי • EQHub (EH)
+        </div>
+        <h1>אקוולייזר – שער מרכזי לכל עולמות הסאונד</h1>
+        <p class="hero-sub">
+          כאן יושב **המרכז העצבי** של כל פרויקט האקוולייזר של AnLoMinus:
+          מדריכי EQ, אקוולייזר צ׳אקרות, ניסויים, טמפלטים ו־GitHub Pages.
+          הדף הזה הוא ה־Dashboard הראשי – מכאן נכנסים לכל השערים.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">SparKing AudioMind</span>
+          <span class="tag">Equalizer Labs</span>
+          <span class="tag">ToneCraft – TC</span>
+          <span class="tag">ChakraEQ – CE</span>
+        </div>
+      </div>
+
+      <aside class="hero-right" aria-label="מידע מהיר על המאגר הראשי">
+        <div>
+          <h3>📁 מבנה המאגר Equalizer</h3>
+          <div class="hero-grid">
+            <div>
+              <strong>ChakraEQ/</strong><br/>
+              אקוולייזר צ׳אקרות אנרגטי – נגן + בר צ׳אקרות.
+            </div>
+            <div>
+              <strong>ToneCraft/</strong><br/>
+              אתר הדרכה מלא בעברית על אימון EQ.
+            </div>
+            <div>
+              <strong>.github/workflows/</strong><br/>
+              גיטהאב אקשנס / דפי סטטיק.
+            </div>
+            <div>
+              <strong>README.md</strong><br/>
+              תיאור המאגר הראשי, קיצורי גישה וקישורים.
+            </div>
+          </div>
+        </div>
+
+        <div class="meta-row">
+          <span class="meta-pill">📅 29.11.2025 • כ״ט בחשוון תשפ״ו</span>
+          <span class="meta-pill">⏰ גרסה ראשונה: 23:05</span>
+          <span class="meta-pill">💫 מספר המידות: 72</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- 🎴 פרויקטים / תתי־אתרים -->
+    <section id="projects" class="panel">
+      <div class="pill-title">Equalizer Realms</div>
+      <h2>🎴 שערים במאגר – ToneCraft &amp; ChakraEQ</h2>
+      <p>
+        כל כרטיס הוא “ממלכה” נפרדת בתוך Equalizer, עם עמוד GitHub Pages משלה.  
+        אפשר להיכנס, ללמוד, לנגן ולהרחיב.
+      </p>
+
+      <div class="projects-grid">
+        <!-- ToneCraft -->
+        <article class="project-card">
+          <div class="project-title">
+            <span>TC</span>
+            <div>🎚️ ToneCraft – מדריך EQ מלא</div>
+          </div>
+          <p class="project-desc">
+            בסיס הידע הטכני: מה זה EQ, סוגי אקוולייזרים, מפת תדרים, מתכונים לווקאל/תופים/באס,
+            שיטת Sweep &amp; Sculpt, טעויות נפוצות וצ’קליסט אימון.
+          </p>
+          <div class="project-links">
+            <a class="btn-link" href="./ToneCraft/" target="_blank" rel="noopener">
+              🌐 כניסה לאתר ToneCraft
+            </a>
+            <a class="btn-link" href="https://github.com/AnLoMinus/Equalizer/tree/main/ToneCraft" target="_blank" rel="noopener">
+              🧾 קבצי המקור בתיקייה
+            </a>
+          </div>
+        </article>
+
+        <!-- ChakraEQ -->
+        <article class="project-card">
+          <div class="project-title">
+            <span>CE</span>
+            <div>🌀 ChakraEQ – אקוולייזר צ׳אקרות אנרגטי</div>
+          </div>
+          <p class="project-desc">
+            נגן מוזיקה עם Drag &amp; Drop, בר אקוולייזר של 8 צ׳אקרות, ויזואל ברים אנרגטי
+            ושליטת Gain לכל צ׳אקרה – חיבור בין סאונד לתודעה.
+          </p>
+          <div class="project-links">
+            <a class="btn-link" href="./ChakraEQ/" target="_blank" rel="noopener">
+              🌐 כניסה לאתר ChakraEQ
+            </a>
+            <a class="btn-link" href="https://github.com/AnLoMinus/Equalizer/tree/main/ChakraEQ" target="_blank" rel="noopener">
+              🧾 קבצי המקור בתיקייה
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 🧭 מסלול שימוש -->
+    <section id="flow" class="panel">
+      <div class="pill-title">Flow • מסלול עבודה</div>
+      <h2>🧭 איך להשתמש במאגר Equalizer כסטודיו שלם</h2>
+      <p>
+        זהו מסלול עבודה מומלץ – משלב לימוד תיאורטי, תרגול טכני וחוויית צ’אקרות אנרגטית.
+      </p>
+      <ol class="steps-list">
+        <li>🔎 <strong>לימוד בסיס</strong> – להיכנס ל־ToneCraft, לקרוא את מפת התדרים והטעויות הנפוצות.</li>
+        <li>🎙 <strong>תרגול ווקאל/באס</strong> – ליישם את המתכונים על הקלטות אמיתיות שלך.</li>
+        <li>🌀 <strong>הרחבת מודעות</strong> – לפתוח את ChakraEQ, לגרור טראק ולהרגיש את תגובת הצ׳אקרות.</li>
+        <li>📓 <strong>EQ Journal</strong> – ליצור קובץ נפרד במאגר (או ריפו נוסף) בו אתה כותב מתכונים ותוצאות.</li>
+        <li>🚀 <strong>הרחבות עתידיות</strong> – להוסיף תתי־תיקיות נוספות (למשל: MasteringEQ, LiveEQ) שמקבלות אתר כמותם.</li>
+      </ol>
+      <p>
+        כל תוספת חדשה לאקוולייזר יכולה לקבל תיקייה + `index.html` + קישור מהדף הראשי הזה – ולהפוך לעוד “Realm” בספארקינג.
+      </p>
+    </section>
+
+    <!-- 🌀 קרדיטים -->
+    <section id="credits" class="panel">
+      <div class="pill-title">Credits • Blessing</div>
+      <h2>🌀 קרדיטים, ברכה וסיום</h2>
+
+      <ul class="steps-list">
+        <li>✨ יוצר ומייסד: <strong>AnLoMinus – SparKing Leon Yaakobov</strong></li>
+        <li>🔥 מותג הגג: <strong>SparKing AudioMind – SM • EQ</strong></li>
+        <li>🎚 מאגר נוכחי: <strong>Equalizer – EQHub (EH)</strong></li>
+        <li>📂 ריפו GitHub: <code>https://github.com/AnLoMinus/Equalizer</code></li>
+        <li>🌐 אתר חי: <code>https://anlominus.github.io/Equalizer/</code></li>
+      </ul>
+
+      <div class="hashtags">
+        #Equalizer #EQHub #SparKing #AudioMind #ToneCraft #ChakraEQ #AnLoMinus #SoundDesign #Mixing #Mastering
+      </div>
+
+      <div class="verse">
+        📜 “זַמְּרוּ לַה׳ בְּכִנּוֹר; בְּכִנּוֹר וְקוֹל זִמְרָה.”  
+        כל פרויקט, כל מאגר, כל אקוולייזר – עוד כלי זמרה לכוון את העולם לתדר של אור.
+      </div>
+
+      <div class="footer-meta">
+        <span>📅 29.11.2025 • כ״ט בחשוון תשפ״ו</span>
+        <span>⏰ עודכן: 23:05 (שעון ישראל)</span>
+        <span>💫 מספר המידות: 72</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

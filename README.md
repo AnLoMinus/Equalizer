@@ -1,5 +1,7 @@
 # 🎚️ **אקוולייזר – Equalizer (EQ)**
 
+<img width="1536" height="1024" alt="Cosmic Equalizer with Chakra Bars" src="https://github.com/user-attachments/assets/a3093bfe-280a-4a0f-8d17-3d5f2a9bc061" />
+
 ## ⚡ *SparKing AudioMind – SM • EQ*
 
 ### 🗓️ תאריך: כ"ז בחשוון תשפ"ו • 29.11.2025
